@@ -38,12 +38,14 @@ const sellingPrice = (p) => Math.ceil((p.costIncl * (1 + MARGIN)) / ROUND_TO) * 
 
 const rupee = (n) => "₹" + Number(n).toLocaleString("en-IN");
 
-// Searchable text for a product: its name plus category and every attribute value.
+// Searchable text: name + category + attribute values, plus supplier / availability
+// so "rohit" or "on order" find on-order items.
 const _hay = new WeakMap();
 function haystack(p) {
   let s = _hay.get(p);
   if (!s) {
-    s = (p.name + " " + p.category + " " + Object.values(p.attributes).join(" ")).toLowerCase();
+    const extra = p.onOrder ? ` on order ${p.supplier || ""}` : "";
+    s = (p.name + " " + p.category + " " + Object.values(p.attributes).join(" ") + extra).toLowerCase();
     _hay.set(p, s);
   }
   return s;
@@ -58,9 +60,12 @@ function valueSort(a, b) {
   return a.localeCompare(b);
 }
 
+// ---- Build catalogue: in-stock products + on-order supplier items ----
+const CATALOG = PRODUCTS.concat(typeof ONORDER !== "undefined" ? ONORDER : []);
+
 // ---- Build category index ----
 const byCategory = {};
-for (const p of PRODUCTS) (byCategory[p.category] ||= []).push(p);
+for (const p of CATALOG) (byCategory[p.category] ||= []).push(p);
 const categories = Object.keys(byCategory).sort(
   (a, b) => byCategory[b].length - byCategory[a].length || a.localeCompare(b)
 );
@@ -114,10 +119,42 @@ function attrKeys(items) {
   return keys;
 }
 
+// One chip group: a label + a list of {value, test(p)} choices, multi-select (OR within group).
+function filterGroup(key, label, choices) {
+  const group = document.createElement("div");
+  group.className = "filter-group";
+  group.innerHTML = `<span class="filter-label">${label}</span>`;
+  for (const c of choices) {
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "chip";
+    chip.textContent = c.value;
+    chip.addEventListener("click", () => {
+      const set = (activeFilters[key] ||= new Set());
+      set.has(c.value) ? set.delete(c.value) : set.add(c.value);
+      if (set.size === 0) delete activeFilters[key];
+      chip.classList.toggle("active");
+      renderResults();
+    });
+    group.appendChild(chip);
+  }
+  return group;
+}
+
 function buildFilters(cat) {
   const items = byCategory[cat];
   const box = $("filters");
   box.innerHTML = "";
+
+  // Availability first, only when the category actually mixes stocked and on-order items.
+  const hasStock = items.some((p) => !p.onOrder);
+  const hasOrder = items.some((p) => p.onOrder);
+  if (hasStock && hasOrder) {
+    box.appendChild(filterGroup("__avail", "Availability", [
+      { value: "In stock" }, { value: "On order" },
+    ]));
+  }
+
   for (const key of attrKeys(items)) {
     const values = [...new Set(items.map((p) => p.attributes[key]).filter(Boolean))].sort(valueSort);
     if (values.length < 2) continue;           // nothing to choose between
@@ -144,8 +181,10 @@ function buildFilters(cat) {
 }
 
 function matches(p) {
-  for (const key in activeFilters)
-    if (!activeFilters[key].has(p.attributes[key])) return false;
+  for (const key in activeFilters) {
+    const val = key === "__avail" ? (p.onOrder ? "On order" : "In stock") : p.attributes[key];
+    if (!activeFilters[key].has(val)) return false;
+  }
   return true;
 }
 
@@ -161,7 +200,7 @@ function renderResults() {
 
 function card(p) {
   const el = document.createElement("div");
-  el.className = "card";
+  el.className = "card" + (p.onOrder ? " onorder" : "");
   el.setAttribute("role", "button");
   el.setAttribute("tabindex", "0");
   el.setAttribute("aria-expanded", "false");
@@ -169,7 +208,31 @@ function card(p) {
     .filter(([, v]) => v && v !== "—")
     .map(([, v]) => `<span class="tag">${v}</span>`)
     .join("");
-  const low = p.stock <= 1 ? "low" : "";
+
+  let avail, detail;
+  if (p.onOrder) {
+    // On-order: sourced from a named supplier, not stocked. Price = margin rule on dealer cost;
+    // MRP + cost + margin stay in the staff-only tap-to-reveal detail.
+    const margin = p.mrp - p.costIncl;
+    const pct = p.mrp ? Math.round((margin / p.mrp) * 100) : 0;
+    avail = `<div class="pill order">On order</div>
+             <div class="via">via ${p.supplier}</div>`;
+    detail = `
+      <div class="detail-row"><span>MRP (list price)</span><b>${rupee(p.mrp)}</b></div>
+      <div class="detail-row"><span>Your cost (NLC)</span><b>${rupee(p.costIncl)}</b></div>
+      <div class="detail-row"><span>Margin vs MRP</span><b>${rupee(margin)} · ${pct}%</b></div>
+      <div class="detail-row"><span>Supplier</span><b>${p.supplier}</b></div>
+      <div class="detail-row"><span>Price list</span><b>${p.priceList}</b></div>
+      <div class="detail-row"><span>Selling price</span><b>${rupee(sellingPrice(p))}</b></div>`;
+  } else {
+    const low = p.stock <= 1 ? "low" : "";
+    avail = `<div class="stock ${low}">${p.stock} in stock</div>`;
+    detail = `
+      <div class="detail-row"><span>Cost (incl. GST)</span><b>${rupee(p.costIncl)}</b></div>
+      <div class="detail-row"><span>GST rate</span><b>${p.gst}%</b></div>
+      <div class="detail-row"><span>Selling price</span><b>${rupee(sellingPrice(p))}</b></div>`;
+  }
+
   el.innerHTML = `
     <div class="card-row">
       <div class="card-main">
@@ -178,15 +241,11 @@ function card(p) {
       </div>
       <div class="card-right">
         <div class="price">${rupee(sellingPrice(p))}</div>
-        <div class="stock ${low}">${p.stock} in stock</div>
+        ${avail}
       </div>
       <span class="chev" aria-hidden="true">⌄</span>
     </div>
-    <div class="card-detail" hidden>
-      <div class="detail-row"><span>Cost (incl. GST)</span><b>${rupee(p.costIncl)}</b></div>
-      <div class="detail-row"><span>GST rate</span><b>${p.gst}%</b></div>
-      <div class="detail-row"><span>Selling price</span><b>${rupee(sellingPrice(p))}</b></div>
-    </div>`;
+    <div class="card-detail" hidden>${detail}</div>`;
   const toggle = () => {
     const open = el.classList.toggle("open");
     el.setAttribute("aria-expanded", open ? "true" : "false");
@@ -206,7 +265,7 @@ function runSearch(q) {
     show(activeCat ? "results" : "category");
     return;
   }
-  const hits = PRODUCTS.filter((p) => haystack(p).includes(q))
+  const hits = CATALOG.filter((p) => haystack(p).includes(q))
     .sort((a, b) => sellingPrice(a) - sellingPrice(b));
   const box = $("searchResults");
   box.innerHTML = "";
