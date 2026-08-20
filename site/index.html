@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Counter Price Lookup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <button id="homeBtn" class="brandmark" type="button" aria-label="Home">
+        <span class="brand-dot"></span>
+        <span class="brand-name">Price&nbsp;Lookup</span>
+      </button>
+      <div class="search-wrap">
+        <input id="search" type="search" inputmode="search" autocomplete="off"
+               placeholder="Search any product…" aria-label="Search products" />
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="app">
+    <!-- Category grid -->
+    <section id="categoryView" class="view">
+      <p class="lede">Pick a product type to start.</p>
+      <div id="categoryGrid" class="cat-grid"></div>
+    </section>
+
+    <!-- Filter + results -->
+    <section id="resultsView" class="view hidden">
+      <div class="results-head">
+        <button id="backBtn" class="back-btn" type="button">← All products</button>
+        <h1 id="catTitle" class="cat-title"></h1>
+        <div class="results-tools">
+          <span id="resultCount" class="result-count"></span>
+          <button id="sortBtn" class="sort-btn" type="button" data-dir="asc">Price ↑</button>
+        </div>
+      </div>
+      <div id="filters" class="filters"></div>
+      <div id="results" class="results"></div>
+      <p id="emptyMsg" class="empty hidden">No products match these filters.</p>
+    </section>
+
+    <!-- Global search results -->
+    <section id="searchView" class="view hidden">
+      <div class="results-head">
+        <h1 class="cat-title">Search results</h1>
+        <span id="searchCount" class="result-count"></span>
+      </div>
+      <div id="searchResults" class="results"></div>
+      <p id="searchEmpty" class="empty hidden">Nothing found. Try a shorter term.</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>Selling prices include GST · tap any product for cost &amp; GST rate</span>
+  </footer>
+
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
