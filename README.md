@@ -56,6 +56,36 @@ Useful options:
 Rows that are out of stock, priced at near-zero (data glitches), or non-retail
 (e.g. software services) are dropped automatically and listed in the output.
 
+## On-order supplier lists
+
+Items the counter doesn't stock but can source from a supplier live in
+`site/onorder.js` (generated — don't hand-edit). They ride in the same
+catalogue with an **On order** flag and an availability filter, and are priced
+from the dealer cost (NLC) with the same margin rule as stock.
+
+Each supplier list is a CSV in `tools/`, in one of two formats:
+
+- **residential** — a brand's home-split range (columns:
+  `series,capacity_ton,star,model,mrp,nlc`). Example:
+  `tools/rohit_daikin_june2026.csv`.
+- **commercial** — a brand's commercial range: cassettes, tower, ducted
+  (columns: `type,capacity_tr,compressor,mode,model,cbu,mrp,nlc`). Capacity is
+  in TR and each unit carries an orderable CBU code. Example:
+  `tools/rohit_voltas_july2026.csv`.
+
+Regenerate `onorder.js` from all lists in one run (they're combined in order):
+
+```bash
+python tools/generate_supplier.py \
+  --source tools/rohit_daikin_june2026.csv Daikin Rohit "June 2026" residential \
+  --source tools/rohit_voltas_july2026.csv Voltas Rohit "July 2026" commercial
+git add site/onorder.js && git commit -m "Update on-order lists" && git push
+```
+
+Each `--source` takes: CSV path, brand, one-word supplier, validity label, and
+format. Only the dealer cost drives the selling price; MRP, cost and the order
+code stay in the staff-only tap-to-reveal detail.
+
 > Don't have Python handy? Keep the export file private and regenerate the
 > catalogue however is convenient — the only rule is that **cost prices must
 > never be committed**, only the marked-up selling prices in `products.js`.

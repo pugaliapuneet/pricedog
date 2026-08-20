@@ -1,0 +1,29 @@
+type,capacity_tr,compressor,mode,model,cbu,mrp,nlc
+4 Way Cassette,1.5,Fixed Speed,Cooling Only,CAS 181 CZAA (R-32),LUFCT18KC1S4AJ01,95900,62980
+4 Way Cassette,2.0,Fixed Speed,Cooling Only,CAS 241 CZAA (R-32),LUFCT24KC1S4AR01,104500,68690
+4 Way Cassette,3.0,Fixed Speed,Cooling Only,CAS 361 CZAA (R32),4502G3GAW1,138200,91020
+4 Way Cassette,4.0,Fixed Speed,Cooling Only,CAS 481 CZAA (R32),4502G22AW1,167700,110490
+4 Way Cassette,1.5,Inverter,Cooling Only,CAS 183V CZMM (R-32),LUVCT18KC3S4AJ01,108500,71140
+4 Way Cassette,2.0,Inverter,Cooling Only,CAS 243V CZMM (R32),LUVCT24KC3S4AJ02,119000,77760
+4 Way Cassette,3.0,Inverter,Cooling Only,CAS 363V CZMM (R32),4503418N,156700,108250
+4 Way Cassette,4.0,Inverter,Cooling Only,CAS 482V CZMM (R32),450341GNQ,183400,124760
+Tower AC,2.0,Fixed Speed,Cooling Only,FAC 241 CZMM (R32),4503505W,98600,67980
+Tower AC,3.0,Fixed Speed,Cooling Only,FAC 361 CZMM (R32),4502882W1,147500,99890
+Tower AC,4.0,Fixed Speed,Cooling Only,FAC 481 CZMM (R32),4502883W1,165000,114060
+Mega Split,2.5,Inverter,Hot & Cold,2.5 TR Mega HW Inv HCC R410a,VMMV28WDVIHG0GLC1,127800,99180
+Mega Split,3.0,Inverter,Hot & Cold,SAC 361 CZV Mega HW (R-32),4503150W1,108700,71750
+4 Way Cassette,2.0,Inverter,Hot & Cold,4 Way 2.0 TR Hot & Cold,VMMV21WDVIH71Q4LC1,131458,100300
+4 Way Cassette,2.5,Inverter,Hot & Cold,4 Way 2.5 TR Hot & Cold,VMMV28WDVIHG0Q4LC1,148697,115690
+4 Way Cassette,3.0,Inverter,Hot & Cold,4 Way 3.0 TR Hot & Cold,VMMV36WVIH112Q4LC1,158930,135980
+4 Way Cassette,3.5,Inverter,Hot & Cold,4 Way 3.5 TR Hot & Cold,VMMV42WVIH112Q4LC1,170730,141080
+4 Way Cassette,4.0,Inverter,Hot & Cold,4 Way 4.0 TR Hot & Cold,VMMV48WVIH140Q4LC1,194883,159730
+1 Way Cassette,1.0,Inverter,Cooling Only,1 Way 1.0 TR Cool Only,VMMCOV12VIH36Q1LC1,119197,83370
+1 Way Cassette,1.5,Inverter,Cooling Only,1 Way 1.5 TR Cool Only,VMMCOV18VIH56Q1LC1,128877,91630
+1 Way Cassette,2.0,Inverter,Cooling Only,1 Way 2.0 TR Cool Only,VMMCOV24VIH71Q1LC1,130904,94790
+1 Way Cassette,1.0,Inverter,Hot & Cold,1 Way 1.0 TR Hot & Cold,VMMV12WDVIH36Q1LC1,110532,88670
+1 Way Cassette,1.5,Inverter,Hot & Cold,1 Way 1.5 TR Hot & Cold,VMMV18WDVIH56Q1LC1,124636,97440
+1 Way Cassette,2.0,Inverter,Hot & Cold,1 Way 2.0 TR Hot & Cold,VMMV21WDVIH71Q1LC1,129522,100810
+Ducted Split,1.5,Fixed Speed,Cooling Only,1.5 Ton Ducted Split AC - Cooling Only,DUFCT18KD0S4JJ01,59300,42080
+Ducted Split,2.0,Fixed Speed,Cooling Only,2.0 Ton Ducted Split AC - Cooling Only,DUFCT24KD0S4JJ01,70500,49930
+Ducted Split,1.5,Fixed Speed,Hot & Cold,1.5 Ton Ducted Split AC - HCC,DUFHC18KD0S4JJ01,69000,46360
+Ducted Split,2.0,Fixed Speed,Hot & Cold,2.0 Ton Ducted Split AC - HCC,DUFHC24KD0S4JJ01,81000,54930

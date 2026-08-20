@@ -44,7 +44,7 @@ const _hay = new WeakMap();
 function haystack(p) {
   let s = _hay.get(p);
   if (!s) {
-    const extra = p.onOrder ? ` on order ${p.supplier || ""}` : "";
+    const extra = p.onOrder ? ` on order ${p.supplier || ""} ${p.code || ""}` : "";
     s = (p.name + " " + p.category + " " + Object.values(p.attributes).join(" ") + extra).toLowerCase();
     _hay.set(p, s);
   }
@@ -217,11 +217,13 @@ function card(p) {
     const pct = p.mrp ? Math.round((margin / p.mrp) * 100) : 0;
     avail = `<div class="pill order">On order</div>
              <div class="via">via ${p.supplier}</div>`;
+    const codeRow = p.code ? `<div class="detail-row"><span>Order code</span><b>${p.code}</b></div>` : "";
     detail = `
       <div class="detail-row"><span>MRP (list price)</span><b>${rupee(p.mrp)}</b></div>
       <div class="detail-row"><span>Your cost (NLC)</span><b>${rupee(p.costIncl)}</b></div>
       <div class="detail-row"><span>Margin vs MRP</span><b>${rupee(margin)} · ${pct}%</b></div>
       <div class="detail-row"><span>Supplier</span><b>${p.supplier}</b></div>
+      ${codeRow}
       <div class="detail-row"><span>Price list</span><b>${p.priceList}</b></div>
       <div class="detail-row"><span>Selling price</span><b>${rupee(sellingPrice(p))}</b></div>`;
   } else {
