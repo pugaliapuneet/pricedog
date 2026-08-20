@@ -30,6 +30,12 @@ const EMOJI = {
   "Other": "📦",
 };
 
+// ---- Pricing rule ----
+// Selling price = cost incl. GST + 10% margin, rounded UP to the next ₹250.
+const MARGIN = 0.10;
+const ROUND_TO = 250;
+const sellingPrice = (p) => Math.ceil((p.costIncl * (1 + MARGIN)) / ROUND_TO) * ROUND_TO;
+
 const rupee = (n) => "₹" + Number(n).toLocaleString("en-IN");
 
 // Searchable text for a product: its name plus category and every attribute value.
@@ -145,7 +151,7 @@ function matches(p) {
 
 function renderResults() {
   const items = byCategory[activeCat].filter(matches);
-  items.sort((a, b) => (sortDir === "asc" ? a.price - b.price : b.price - a.price));
+  items.sort((a, b) => (sortDir === "asc" ? sellingPrice(a) - sellingPrice(b) : sellingPrice(b) - sellingPrice(a)));
   const box = $("results");
   box.innerHTML = "";
   items.forEach((p) => box.appendChild(card(p)));
@@ -156,20 +162,40 @@ function renderResults() {
 function card(p) {
   const el = document.createElement("div");
   el.className = "card";
+  el.setAttribute("role", "button");
+  el.setAttribute("tabindex", "0");
+  el.setAttribute("aria-expanded", "false");
   const tags = Object.entries(p.attributes)
     .filter(([, v]) => v && v !== "—")
     .map(([, v]) => `<span class="tag">${v}</span>`)
     .join("");
   const low = p.stock <= 1 ? "low" : "";
   el.innerHTML = `
-    <div class="card-main">
-      <div class="card-name">${p.name}</div>
-      <div class="card-tags">${tags}</div>
+    <div class="card-row">
+      <div class="card-main">
+        <div class="card-name">${p.name}</div>
+        <div class="card-tags">${tags}</div>
+      </div>
+      <div class="card-right">
+        <div class="price">${rupee(sellingPrice(p))}</div>
+        <div class="stock ${low}">${p.stock} in stock</div>
+      </div>
+      <span class="chev" aria-hidden="true">⌄</span>
     </div>
-    <div class="card-right">
-      <div class="price">${rupee(p.price)}</div>
-      <div class="stock ${low}">${p.stock} in stock</div>
+    <div class="card-detail" hidden>
+      <div class="detail-row"><span>Cost (incl. GST)</span><b>${rupee(p.costIncl)}</b></div>
+      <div class="detail-row"><span>GST rate</span><b>${p.gst}%</b></div>
+      <div class="detail-row"><span>Selling price</span><b>${rupee(sellingPrice(p))}</b></div>
     </div>`;
+  const toggle = () => {
+    const open = el.classList.toggle("open");
+    el.setAttribute("aria-expanded", open ? "true" : "false");
+    el.querySelector(".card-detail").hidden = !open;
+  };
+  el.addEventListener("click", toggle);
+  el.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
+  });
   return el;
 }
 
@@ -181,7 +207,7 @@ function runSearch(q) {
     return;
   }
   const hits = PRODUCTS.filter((p) => haystack(p).includes(q))
-    .sort((a, b) => a.price - b.price);
+    .sort((a, b) => sellingPrice(a) - sellingPrice(b));
   const box = $("searchResults");
   box.innerHTML = "";
   hits.forEach((p) => box.appendChild(card(p)));

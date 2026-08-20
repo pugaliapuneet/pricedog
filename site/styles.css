@@ -214,14 +214,22 @@ body {
 /* ---------- Results list ---------- */
 .results { display: flex; flex-direction: column; gap: 10px; }
 .card {
-  display: flex;
-  align-items: center;
-  gap: 14px;
   border: 1px solid var(--line);
   background: var(--surface);
   border-radius: var(--radius);
-  padding: 14px 16px;
   box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: border-color .12s, transform .06s;
+  -webkit-tap-highlight-color: transparent;
+}
+.card:hover { border-color: var(--accent); }
+.card:active { transform: scale(.995); }
+.card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.card-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
 }
 .card-main { flex: 1; min-width: 0; }
 .card-name {
@@ -255,6 +263,40 @@ body {
   margin-top: 2px;
 }
 .stock.low { color: #d97706; }
+
+.chev {
+  flex-shrink: 0;
+  color: var(--ink-3);
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: transform .18s ease;
+  transform: translateY(-2px);
+}
+.card.open .chev { transform: translateY(0) rotate(180deg); }
+
+.card-detail[hidden] { display: none; }
+.card-detail {
+  border-top: 1px dashed var(--line);
+  margin: 0 16px;
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.86rem;
+  color: var(--ink-2);
+}
+.detail-row b {
+  color: var(--ink);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.detail-row:last-child { color: var(--price); }
+.detail-row:last-child b { color: var(--price); }
 
 .empty {
   text-align: center;
