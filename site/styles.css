@@ -10,6 +10,9 @@
   --accent-ink: #ffffff;
   --accent-soft: #ccfbf1;
   --price: #0f766e;
+  --order: #b5680a;
+  --order-soft: #fdf1dd;
+  --order-line: #f0d6a6;
   --shadow: 0 1px 2px rgba(15, 23, 42, .06), 0 8px 24px rgba(15, 23, 42, .06);
   --radius: 14px;
 }
@@ -27,6 +30,9 @@
     --accent-ink: #04241f;
     --accent-soft: #123330;
     --price: #5eead4;
+    --order: #e0a23f;
+    --order-soft: #2c2413;
+    --order-line: #4a3a1c;
     --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 10px 30px rgba(0, 0, 0, .35);
   }
 }
@@ -263,6 +269,31 @@ body {
   margin-top: 2px;
 }
 .stock.low { color: #d97706; }
+
+/* ---------- On-order (supplier) items ---------- */
+.pill {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-top: 4px;
+}
+.pill.order {
+  color: var(--order);
+  background: var(--order-soft);
+  border: 1px solid var(--order-line);
+}
+.via {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--ink-3);
+  margin-top: 3px;
+}
+.card.onorder { border-left: 3px solid var(--order); }
+.card.onorder:hover { border-color: var(--order); border-left-color: var(--order); }
 
 .chev {
   flex-shrink: 0;
