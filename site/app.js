@@ -159,10 +159,26 @@ function makeChip(key, value) {
   return chip;
 }
 
-function filterGroup(label, key, values) {
+// Collapsible groups start collapsed: the label becomes a toggle button so the
+// chips are there if you want them but out of the way if you don't.
+function filterGroup(label, key, values, collapsible = false) {
   const group = document.createElement("div");
   group.className = "filter-group";
-  group.innerHTML = `<span class="filter-label">${label}</span>`;
+  if (collapsible) {
+    group.classList.add("collapsible", "collapsed");
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "filter-label filter-toggle";
+    btn.setAttribute("aria-expanded", "false");
+    btn.innerHTML = `<span class="filter-caret" aria-hidden="true"></span>${label}`;
+    btn.addEventListener("click", () => {
+      const collapsed = group.classList.toggle("collapsed");
+      btn.setAttribute("aria-expanded", String(!collapsed));
+    });
+    group.appendChild(btn);
+  } else {
+    group.innerHTML = `<span class="filter-label">${label}</span>`;
+  }
   for (const val of values) group.appendChild(makeChip(key, val));
   return group;
 }
@@ -180,11 +196,19 @@ function buildFilters(cat) {
     box.appendChild(filterGroup("Availability", "__avail", ["In stock", "On order"]));
   }
 
+  // "Series" is a long, rarely-needed list — hold it back and render it last as
+  // a collapsed, toggleable group so it stays accessible without taking up room.
+  let seriesGroup = null;
   for (const key of attrKeys(items)) {
     const values = [...new Set(items.map((p) => p.attributes[key]).filter(Boolean))].sort(valueSort);
     if (values.length < 2) continue;           // nothing to choose between
+    if (key === "Series") {
+      seriesGroup = filterGroup(key, key, values, true);
+      continue;
+    }
     box.appendChild(filterGroup(key, key, values));
   }
+  if (seriesGroup) box.appendChild(seriesGroup);
 }
 
 function matches(p) {

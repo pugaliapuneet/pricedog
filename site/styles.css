@@ -209,6 +209,30 @@ body {
   color: var(--ink-3);
   min-width: 92px;
 }
+/* Collapsible group (e.g. Series): label doubles as a toggle button. */
+.filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  background: none;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+  color: var(--ink-3);
+}
+.filter-toggle:hover { color: var(--accent); }
+.filter-caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid currentColor;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  transition: transform .12s;
+}
+.filter-group:not(.collapsed) .filter-caret { transform: rotate(90deg); }
+.filter-group.collapsed .chip { display: none; }
+
 .chip {
   display: inline-flex;
   align-items: baseline;
