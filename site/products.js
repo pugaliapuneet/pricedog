@@ -594,7 +594,7 @@ const PRODUCTS = [
     "name": "MITS. ELE. INV. 1.5TON 2* MSY/MUY-JP18VF",
     "category": "Air Conditioner",
     "attributes": {
-      "Brand": "Mitsubishi",
+      "Brand": "Mitsubishi Electric",
       "Type": "Split",
       "Capacity": "1.5 Ton",
       "Star Rating": "2 Star",
@@ -608,7 +608,7 @@ const PRODUCTS = [
     "name": "MITS.HEAVY SAC FS 1.6TON 3* SRK20CSS/SRC20CSS-S6",
     "category": "Air Conditioner",
     "attributes": {
-      "Brand": "Mitsubishi",
+      "Brand": "Mitsubishi Electric",
       "Type": "Split",
       "Capacity": "1.6 Ton",
       "Star Rating": "3 Star",
