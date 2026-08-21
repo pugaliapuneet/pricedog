@@ -13,8 +13,10 @@ alongside for the staff-only tap-to-reveal detail.
 
 Two CSV formats are supported, one per source, chosen by the source's FORMAT field:
 
-  residential — brand's home-split range (e.g. Daikin). Columns:
+  residential — brand's home-split range (e.g. Daikin, Hitachi). Columns:
       series,capacity_ton,star,model,mrp,nlc
+      Optional columns type,compressor override the defaults ("Split" / inferred
+      from the series name) per row — e.g. window units or fixed-speed models.
 
   commercial  — brand's commercial range (e.g. Voltas: cassettes, tower, ducted).
       Capacity is in TR, there is no star rating, and each unit carries an orderable
@@ -88,13 +90,17 @@ def parse_residential(row, brand, supplier, valid, category, gst):
     star = row["star"].strip()
     model = row["model"].strip().upper()
     label = series_label(raw_series)
+    # Type/compressor default to a split inverter, but a source may override per row
+    # (e.g. window units, or fixed-speed models a series name can't reveal).
+    unit_type = (row.get("type") or "").strip() or "Split"
+    compressor = (row.get("compressor") or "").strip() or compressor_of(raw_series)
     name = f"{brand.upper()} {label.upper()} {float(ton):g}TON {star}* {model}"
     attributes = {
         "Brand": brand,
-        "Type": "Split",
+        "Type": unit_type,
         "Capacity": ton_label(ton),
         "Star Rating": f"{star} Star",
-        "Compressor": compressor_of(raw_series),
+        "Compressor": compressor,
         "Series": label,
     }
     return base_item(brand, supplier, valid, category, gst, name, attributes,
