@@ -63,7 +63,7 @@ Items the counter doesn't stock but can source from a supplier live in
 catalogue with an **On order** flag and an availability filter, and are priced
 from the dealer cost (NLC) with the same margin rule as stock.
 
-Each supplier list is a CSV in `tools/`, in one of two formats:
+Each supplier list is a CSV in `tools/`, in one of three formats:
 
 - **residential** — a brand's home-split range (columns:
   `series,capacity_ton,star,model,mrp,nlc`). Example:
@@ -75,6 +75,12 @@ Each supplier list is a CSV in `tools/`, in one of two formats:
   (columns: `type,capacity_tr,compressor,mode,model,cbu,mrp,nlc`). Capacity is
   in TR and each unit carries an orderable CBU code. Example:
   `tools/rohit_voltas_july2026.csv`.
+- **threshold** — a room-AC list that quotes only a *Min Threshold Price* — the
+  company's floor price, with no model code and no MRP/NLC (columns:
+  `segment,capacity_tr,star,series,threshold`). The threshold stands in for the
+  cost basis, so it's priced by the same margin rule; Type/Compressor/Mode are
+  derived from the product segment. Example: `tools/voltas_direct_july2026.csv`
+  (Voltas' "Direct" list, ordered straight from the company).
 
 Regenerate `onorder.js` from all lists in one run (they're combined in order —
 list **every** source each time, or the omitted ones drop out of the file):
@@ -83,14 +89,15 @@ list **every** source each time, or the omitted ones drop out of the file):
 python tools/generate_supplier.py \
   --source tools/rohit_daikin_june2026.csv Daikin Rohit "June 2026" residential \
   --source tools/rohit_voltas_july2026.csv Voltas Rohit "July 2026" commercial \
+  --source tools/voltas_direct_july2026.csv Voltas Direct "July 2026" threshold \
   --source tools/satisfaction_hitachi_april2026.csv Hitachi Satisfaction "April 2026" residential \
   --source tools/satisfaction_mitsubishi_april2026.csv "Mitsubishi Electric" Satisfaction "April 2026" residential
 git add site/onorder.js && git commit -m "Update on-order lists" && git push
 ```
 
 Each `--source` takes: CSV path, brand, one-word supplier, validity label, and
-format. Only the dealer cost drives the selling price; MRP, cost and the order
-code stay in the staff-only tap-to-reveal detail.
+format. Only the cost basis drives the selling price; MRP (when known), cost and
+any order code stay in the staff-only tap-to-reveal detail.
 
 > Don't have Python handy? Keep the export file private and regenerate the
 > catalogue however is convenient — the only rule is that **cost prices must

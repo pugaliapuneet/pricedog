@@ -2,6 +2,7 @@
 // On-order items sourced from a supplier, priced from dealer NLC:
 //    36 · supplier "Rohit" · Daikin · June 2026 · residential.
 //    28 · supplier "Rohit" · Voltas · July 2026 · commercial.
+//    35 · supplier "Direct" · Voltas · July 2026 · threshold.
 //    28 · supplier "Satisfaction" · Hitachi · April 2026 · residential.
 //    22 · supplier "Satisfaction" · Mitsubishi Electric · April 2026 · residential.
 // costIncl = dealer NLC (treated as GST-inclusive); selling price is computed in app.js.
@@ -696,7 +697,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "1.5 TR",
+      "Capacity": "1.5 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Cooling Only"
     },
@@ -715,7 +716,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "2 TR",
+      "Capacity": "2 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Cooling Only"
     },
@@ -734,7 +735,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "3 TR",
+      "Capacity": "3 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Cooling Only"
     },
@@ -753,7 +754,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "4 TR",
+      "Capacity": "4 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Cooling Only"
     },
@@ -772,7 +773,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "1.5 TR",
+      "Capacity": "1.5 Ton",
       "Compressor": "Inverter",
       "Mode": "Cooling Only"
     },
@@ -791,7 +792,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "2 TR",
+      "Capacity": "2 Ton",
       "Compressor": "Inverter",
       "Mode": "Cooling Only"
     },
@@ -810,7 +811,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "3 TR",
+      "Capacity": "3 Ton",
       "Compressor": "Inverter",
       "Mode": "Cooling Only"
     },
@@ -829,7 +830,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "4 TR",
+      "Capacity": "4 Ton",
       "Compressor": "Inverter",
       "Mode": "Cooling Only"
     },
@@ -848,7 +849,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "Tower AC",
-      "Capacity": "2 TR",
+      "Capacity": "2 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Cooling Only"
     },
@@ -867,7 +868,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "Tower AC",
-      "Capacity": "3 TR",
+      "Capacity": "3 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Cooling Only"
     },
@@ -886,7 +887,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "Tower AC",
-      "Capacity": "4 TR",
+      "Capacity": "4 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Cooling Only"
     },
@@ -905,7 +906,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "Mega Split",
-      "Capacity": "2.5 TR",
+      "Capacity": "2.5 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -924,7 +925,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "Mega Split",
-      "Capacity": "3 TR",
+      "Capacity": "3 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -943,7 +944,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "2 TR",
+      "Capacity": "2 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -962,7 +963,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "2.5 TR",
+      "Capacity": "2.5 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -981,7 +982,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "3 TR",
+      "Capacity": "3 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -1000,7 +1001,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "3.5 TR",
+      "Capacity": "3.5 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -1019,7 +1020,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "4 TR",
+      "Capacity": "4 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -1038,7 +1039,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "1 Way Cassette",
-      "Capacity": "1 TR",
+      "Capacity": "1 Ton",
       "Compressor": "Inverter",
       "Mode": "Cooling Only"
     },
@@ -1057,7 +1058,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "1 Way Cassette",
-      "Capacity": "1.5 TR",
+      "Capacity": "1.5 Ton",
       "Compressor": "Inverter",
       "Mode": "Cooling Only"
     },
@@ -1076,7 +1077,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "1 Way Cassette",
-      "Capacity": "2 TR",
+      "Capacity": "2 Ton",
       "Compressor": "Inverter",
       "Mode": "Cooling Only"
     },
@@ -1095,7 +1096,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "1 Way Cassette",
-      "Capacity": "1 TR",
+      "Capacity": "1 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -1114,7 +1115,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "1 Way Cassette",
-      "Capacity": "1.5 TR",
+      "Capacity": "1.5 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -1133,7 +1134,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "1 Way Cassette",
-      "Capacity": "2 TR",
+      "Capacity": "2 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -1152,7 +1153,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "Ducted Split",
-      "Capacity": "1.5 TR",
+      "Capacity": "1.5 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Cooling Only"
     },
@@ -1171,7 +1172,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "Ducted Split",
-      "Capacity": "2 TR",
+      "Capacity": "2 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Cooling Only"
     },
@@ -1190,7 +1191,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "Ducted Split",
-      "Capacity": "1.5 TR",
+      "Capacity": "1.5 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Hot & Cold"
     },
@@ -1209,7 +1210,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "Ducted Split",
-      "Capacity": "2 TR",
+      "Capacity": "2 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Hot & Cold"
     },
@@ -1221,6 +1222,706 @@ const ONORDER = [
     "costIncl": 54930,
     "mrp": 81000,
     "code": "DUFHC24KD0S4JJ01"
+  },
+  {
+    "name": "VOLTAS VECTRA 1 TON 2 STAR WINDOW FIXED SPEED",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Window",
+      "Capacity": "1 Ton",
+      "Star Rating": "2 Star",
+      "Compressor": "Fixed Speed",
+      "Mode": "Cooling Only",
+      "Series": "Vectra"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 28000,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VECTRA 1.5 TON 2 STAR WINDOW FIXED SPEED",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Window",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "2 Star",
+      "Compressor": "Fixed Speed",
+      "Mode": "Cooling Only",
+      "Series": "Vectra"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 31000,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VECTRA 1.5 TON 3 STAR WINDOW FIXED SPEED",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Window",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Fixed Speed",
+      "Mode": "Cooling Only",
+      "Series": "Vectra"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 33500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VECTRA 2 TON 1 STAR WINDOW FIXED SPEED",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Window",
+      "Capacity": "2 Ton",
+      "Star Rating": "1 Star",
+      "Compressor": "Fixed Speed",
+      "Mode": "Cooling Only",
+      "Series": "Vectra"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 35500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VERTIS 1.5 TON 3 STAR WINDOW INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Window",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vertis"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 32500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VERTIS 1.5 TON 5 STAR WINDOW INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Window",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vertis"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 37500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VERTIS TOPAZ 1.5 TON 5 STAR WINDOW INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Window",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vertis Topaz"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 39500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VERTIS 2 TON 3 STAR WINDOW INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Window",
+      "Capacity": "2 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vertis"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 37500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VECTRA 1 TON 2 STAR SPLIT FIXED SPEED",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "2 Star",
+      "Compressor": "Fixed Speed",
+      "Mode": "Cooling Only",
+      "Series": "Vectra"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 33500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VECTRA 1.5 TON 2 STAR SPLIT FIXED SPEED",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "2 Star",
+      "Compressor": "Fixed Speed",
+      "Mode": "Cooling Only",
+      "Series": "Vectra"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 37000,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VECTRA 1.5 TON 3 STAR SPLIT FIXED SPEED",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Fixed Speed",
+      "Mode": "Cooling Only",
+      "Series": "Vectra"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 42500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VENUS 1.5 TON 3 STAR SPLIT FIXED SPEED",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Fixed Speed",
+      "Mode": "Cooling Only",
+      "Series": "Venus"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 44500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VECTRA 2 TON 2 STAR SPLIT FIXED SPEED",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "2 Ton",
+      "Star Rating": "2 Star",
+      "Compressor": "Fixed Speed",
+      "Mode": "Cooling Only",
+      "Series": "Vectra"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 47500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VECTRA 1 TON 3 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vectra"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 31000,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VERTIS 1 TON 3 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vertis"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 32000,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VERTIS AI 1 TON 3 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vertis AI"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 33500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VECTRA 1 TON 5 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vectra"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 38500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VERTIS AI 1 TON 5 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vertis AI"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 40000,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VECTRA 1.5 TON 3 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vectra"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 34500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VERTIS 1.5 TON 3 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vertis"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 35500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VERTIS AI 1.5 TON 3 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vertis AI"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 37000,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VERTIS LEATHERETTE AI 1.5 TON 3 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vertis Leatherette AI"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 38000,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VENUS LUXE 1.5 TON 3 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Venus Luxe"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 39000,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VECTRA 1.5 TON 5 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vectra"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 44500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VERTIS 1.5 TON 5 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vertis"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 45500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VERTIS AI 1.5 TON 5 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vertis AI"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 47000,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VENUS LUXE 1.5 TON 5 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Venus Luxe"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 49500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VECTRA 2 TON 3 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "2 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vectra"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 46500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VENUS LUXE 2 TON 3 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "2 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Venus Luxe"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 49500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VECTRA 2 TON 5 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "2 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vectra"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 59500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VECTRA 1.5 TON 3 STAR SPLIT INVERTER HOT & COLD",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Mode": "Hot & Cold",
+      "Series": "Vectra"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 39000,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VECTRA 2 TON 3 STAR SPLIT INVERTER HOT & COLD",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "2 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Mode": "Hot & Cold",
+      "Series": "Vectra"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 49500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VECTRA (WITHOUT KIT) 1 TON 3 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vectra (Without Kit)"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 30000,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VECTRA (WITHOUT KIT) 1.5 TON 3 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vectra (Without Kit)"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 33500,
+    "costLabel": "Min threshold price"
+  },
+  {
+    "name": "VOLTAS VECTRA (WITHOUT KIT) 2 TON 3 STAR SPLIT INVERTER",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Voltas",
+      "Type": "Split",
+      "Capacity": "2 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Mode": "Cooling Only",
+      "Series": "Vectra (Without Kit)"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Direct",
+    "priceList": "July 2026",
+    "gst": 18,
+    "costIncl": 45500,
+    "costLabel": "Min threshold price"
   },
   {
     "name": "HITACHI SUMO 5700XXL 1.5TON 5* RAS.Y519PCDISL",

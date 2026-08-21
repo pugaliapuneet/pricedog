@@ -51,6 +51,17 @@ function haystack(p) {
   return s;
 }
 
+/* How an attribute value is shown in the UI (tags + filter chips).
+   Star ratings render with a real star: "5 Star" -> "5★". The underlying data
+   value is unchanged, so search and faceting still work on "5 Star". */
+function displayValue(key, value) {
+  if (key === "Star Rating") {
+    const m = /^(\d+(?:\.\d+)?)\s*Star$/i.exec(value);
+    if (m) return `${m[1]}★`;
+  }
+  return value;
+}
+
 /* Numeric-aware sort so "1.5 Ton" < "2 Ton", "32 inch" < "43 inch", "—" last. */
 function valueSort(a, b) {
   if (a === "—") return 1;
@@ -135,7 +146,7 @@ function makeChip(key, value) {
   chip.type = "button";
   chip.className = "chip";
   chip.innerHTML = `<span class="chip-val"></span><span class="chip-count"></span>`;
-  chip.querySelector(".chip-val").textContent = value;
+  chip.querySelector(".chip-val").textContent = displayValue(key, value);
   const countEl = chip.querySelector(".chip-count");
   chip.addEventListener("click", () => {
     const set = (activeFilters[key] ||= new Set());
@@ -224,22 +235,30 @@ function card(p) {
   el.setAttribute("aria-expanded", "false");
   const tags = Object.entries(p.attributes)
     .filter(([, v]) => v && v !== "—")
-    .map(([, v]) => `<span class="tag">${v}</span>`)
+    .map(([k, v]) => `<span class="tag">${displayValue(k, v)}</span>`)
     .join("");
 
   let avail, detail;
   if (p.onOrder) {
-    // On-order: sourced from a named supplier, not stocked. Price = margin rule on dealer cost;
-    // MRP + cost + margin stay in the staff-only tap-to-reveal detail.
-    const margin = p.mrp - p.costIncl;
-    const pct = p.mrp ? Math.round((margin / p.mrp) * 100) : 0;
+    // On-order: sourced from a named supplier, not stocked. Price = margin rule on the cost
+    // basis (dealer NLC, or a company floor price); cost + margin stay in the staff-only detail.
     avail = `<div class="pill order">On order</div>
              <div class="via">via ${p.supplier}</div>`;
+    // MRP + margin-vs-MRP only when a list price is known (some lists quote a floor price only).
+    let mrpRows = "";
+    if (p.mrp) {
+      const margin = p.mrp - p.costIncl;
+      const pct = Math.round((margin / p.mrp) * 100);
+      mrpRows =
+        `<div class="detail-row"><span>MRP (list price)</span><b>${rupee(p.mrp)}</b></div>` +
+        `__COST__` +
+        `<div class="detail-row"><span>Margin vs MRP</span><b>${rupee(margin)} · ${pct}%</b></div>`;
+    }
+    const costRow = `<div class="detail-row"><span>${p.costLabel || "Your cost (NLC)"}</span><b>${rupee(p.costIncl)}</b></div>`;
+    mrpRows = mrpRows ? mrpRows.replace("__COST__", costRow) : costRow;
     const codeRow = p.code ? `<div class="detail-row"><span>Order code</span><b>${p.code}</b></div>` : "";
     detail = `
-      <div class="detail-row"><span>MRP (list price)</span><b>${rupee(p.mrp)}</b></div>
-      <div class="detail-row"><span>Your cost (NLC)</span><b>${rupee(p.costIncl)}</b></div>
-      <div class="detail-row"><span>Margin vs MRP</span><b>${rupee(margin)} · ${pct}%</b></div>
+      ${mrpRows}
       <div class="detail-row"><span>Supplier</span><b>${p.supplier}</b></div>
       ${codeRow}
       <div class="detail-row"><span>Price list</span><b>${p.priceList}</b></div>
