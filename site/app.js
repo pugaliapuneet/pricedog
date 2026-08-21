@@ -80,6 +80,12 @@ function show(view) {
 let activeCat = null;
 let activeFilters = {};   // { attrKey: Set(values) }
 let sortDir = "asc";
+let chipRegistry = [];    // { key, value, el, countEl } for live count badges
+
+// "12 pcs of 5 models" — physical quantity (sum of stock) across the distinct models shown.
+function countLabel(pcs, models) {
+  return `${pcs} pcs of ${models} model${models === 1 ? "" : "s"}`;
+}
 
 // ---------- Category grid ----------
 function renderCategories() {
@@ -119,25 +125,34 @@ function attrKeys(items) {
   return keys;
 }
 
-// One chip group: a label + a list of {value, test(p)} choices, multi-select (OR within group).
-function filterGroup(key, label, choices) {
+// The value a product presents for a filter key ("__avail" is derived, not an attribute).
+const chipValue = (p, key) =>
+  key === "__avail" ? (p.onOrder ? "On order" : "In stock") : p.attributes[key];
+
+// One multi-select chip (OR within its group). Carries a live count badge.
+function makeChip(key, value) {
+  const chip = document.createElement("button");
+  chip.type = "button";
+  chip.className = "chip";
+  chip.innerHTML = `<span class="chip-val"></span><span class="chip-count"></span>`;
+  chip.querySelector(".chip-val").textContent = value;
+  const countEl = chip.querySelector(".chip-count");
+  chip.addEventListener("click", () => {
+    const set = (activeFilters[key] ||= new Set());
+    set.has(value) ? set.delete(value) : set.add(value);
+    if (set.size === 0) delete activeFilters[key];
+    chip.classList.toggle("active");
+    renderResults();
+  });
+  chipRegistry.push({ key, value, el: chip, countEl });
+  return chip;
+}
+
+function filterGroup(label, key, values) {
   const group = document.createElement("div");
   group.className = "filter-group";
   group.innerHTML = `<span class="filter-label">${label}</span>`;
-  for (const c of choices) {
-    const chip = document.createElement("button");
-    chip.type = "button";
-    chip.className = "chip";
-    chip.textContent = c.value;
-    chip.addEventListener("click", () => {
-      const set = (activeFilters[key] ||= new Set());
-      set.has(c.value) ? set.delete(c.value) : set.add(c.value);
-      if (set.size === 0) delete activeFilters[key];
-      chip.classList.toggle("active");
-      renderResults();
-    });
-    group.appendChild(chip);
-  }
+  for (const val of values) group.appendChild(makeChip(key, val));
   return group;
 }
 
@@ -145,47 +160,48 @@ function buildFilters(cat) {
   const items = byCategory[cat];
   const box = $("filters");
   box.innerHTML = "";
+  chipRegistry = [];
 
   // Availability first, only when the category actually mixes stocked and on-order items.
   const hasStock = items.some((p) => !p.onOrder);
   const hasOrder = items.some((p) => p.onOrder);
   if (hasStock && hasOrder) {
-    box.appendChild(filterGroup("__avail", "Availability", [
-      { value: "In stock" }, { value: "On order" },
-    ]));
+    box.appendChild(filterGroup("Availability", "__avail", ["In stock", "On order"]));
   }
 
   for (const key of attrKeys(items)) {
     const values = [...new Set(items.map((p) => p.attributes[key]).filter(Boolean))].sort(valueSort);
     if (values.length < 2) continue;           // nothing to choose between
-    const group = document.createElement("div");
-    group.className = "filter-group";
-    group.innerHTML = `<span class="filter-label">${key}</span>`;
-    for (const val of values) {
-      const chip = document.createElement("button");
-      chip.type = "button";
-      chip.className = "chip";
-      chip.textContent = val;
-      chip.addEventListener("click", () => {
-        (activeFilters[key] ||= new Set());
-        const set = activeFilters[key];
-        set.has(val) ? set.delete(val) : set.add(val);
-        if (set.size === 0) delete activeFilters[key];
-        chip.classList.toggle("active");
-        renderResults();
-      });
-      group.appendChild(chip);
-    }
-    box.appendChild(group);
+    box.appendChild(filterGroup(key, key, values));
   }
 }
 
 function matches(p) {
   for (const key in activeFilters) {
-    const val = key === "__avail" ? (p.onOrder ? "On order" : "In stock") : p.attributes[key];
-    if (!activeFilters[key].has(val)) return false;
+    if (!activeFilters[key].has(chipValue(p, key))) return false;
   }
   return true;
+}
+
+// Does p pass every active filter except the one group we're counting within?
+function matchesExcept(p, exceptKey) {
+  for (const key in activeFilters) {
+    if (key === exceptKey) continue;
+    if (!activeFilters[key].has(chipValue(p, key))) return false;
+  }
+  return true;
+}
+
+// Faceted counts: how many items each chip would still yield given the other active filters.
+function updateChipCounts() {
+  const items = byCategory[activeCat];
+  for (const { key, value, el, countEl } of chipRegistry) {
+    let n = 0;
+    for (const p of items)
+      if (chipValue(p, key) === value && matchesExcept(p, key)) n++;
+    countEl.textContent = n;
+    el.classList.toggle("zero", n === 0 && !el.classList.contains("active"));
+  }
 }
 
 function renderResults() {
@@ -194,8 +210,10 @@ function renderResults() {
   const box = $("results");
   box.innerHTML = "";
   items.forEach((p) => box.appendChild(card(p)));
-  $("resultCount").textContent = `${items.length} shown`;
+  const pcs = items.reduce((n, p) => n + (p.stock || 0), 0);
+  $("resultCount").textContent = countLabel(pcs, items.length);
   $("emptyMsg").classList.toggle("hidden", items.length > 0);
+  updateChipCounts();
 }
 
 function card(p) {
@@ -272,7 +290,8 @@ function runSearch(q) {
   const box = $("searchResults");
   box.innerHTML = "";
   hits.forEach((p) => box.appendChild(card(p)));
-  $("searchCount").textContent = `${hits.length} result${hits.length === 1 ? "" : "s"}`;
+  const pcs = hits.reduce((n, p) => n + (p.stock || 0), 0);
+  $("searchCount").textContent = countLabel(pcs, hits.length);
   $("searchEmpty").classList.toggle("hidden", hits.length > 0);
   show("search");
 }

@@ -124,17 +124,22 @@ body {
 .lede { color: var(--ink-2); margin: 4px 2px 16px; font-size: 0.98rem; }
 
 /* ---------- Category grid ---------- */
+/* At least 3 columns everywhere; more once there's room. minmax(0,1fr) lets long
+   category names wrap instead of forcing the track wider. */
 .cat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+@media (min-width: 620px) {
+  .cat-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
 }
 .cat-card {
   text-align: left;
   border: 1px solid var(--line);
   background: var(--surface);
   border-radius: var(--radius);
-  padding: 16px 15px;
+  padding: clamp(11px, 3vw, 16px) clamp(10px, 2.6vw, 15px);
   cursor: pointer;
   color: var(--ink);
   font: inherit;
@@ -142,14 +147,20 @@ body {
   transition: transform .12s, border-color .12s;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  min-height: 96px;
+  gap: clamp(6px, 1.6vw, 10px);
+  min-height: 84px;
 }
 .cat-card:hover { transform: translateY(-2px); border-color: var(--accent); }
 .cat-card:active { transform: translateY(0); }
-.cat-emoji { font-size: 1.7rem; line-height: 1; }
-.cat-name { font-weight: 600; font-size: 0.98rem; letter-spacing: -.01em; }
-.cat-count { color: var(--ink-3); font-size: 0.8rem; font-weight: 500; }
+.cat-emoji { font-size: clamp(1.35rem, 4.6vw, 1.7rem); line-height: 1; }
+.cat-name {
+  font-weight: 600;
+  font-size: clamp(0.82rem, 2.7vw, 0.98rem);
+  letter-spacing: -.01em;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.cat-count { color: var(--ink-3); font-size: clamp(0.7rem, 2.2vw, 0.8rem); font-weight: 500; }
 
 /* ---------- Results header ---------- */
 .results-head {
@@ -199,6 +210,9 @@ body {
   min-width: 92px;
 }
 .chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
   border: 1px solid var(--line);
   background: var(--surface);
   color: var(--ink-2);
@@ -216,6 +230,14 @@ body {
   color: var(--accent-ink);
   border-color: var(--accent);
 }
+.chip-count {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+.chip.active .chip-count { color: color-mix(in srgb, var(--accent-ink) 80%, transparent); }
+.chip.zero { opacity: .45; }
 
 /* ---------- Results list ---------- */
 .results { display: flex; flex-direction: column; gap: 10px; }
@@ -347,7 +369,6 @@ body {
 }
 
 @media (max-width: 480px) {
-  .cat-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
   .filter-label { min-width: 100%; }
   .card { padding: 13px 14px; }
 }
