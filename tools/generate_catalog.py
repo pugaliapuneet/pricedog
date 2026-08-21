@@ -32,7 +32,7 @@ except ImportError:
 BRANDS = {
     "BLUE STAR": "Blue Star", "VOLTAS": "Voltas", "DAIKIN": "Daikin", "CARRIER": "Carrier",
     "GODREJ": "Godrej", "HAIER": "Haier", "WHIRL": "Whirlpool", "LLOYD": "Lloyd",
-    "MITS": "Mitsubishi", "BAJAJ": "Bajaj", "ATOMBERG": "Atomberg", "CROMPTON": "Crompton",
+    "MITS": "Mitsubishi Electric", "BAJAJ": "Bajaj", "ATOMBERG": "Atomberg", "CROMPTON": "Crompton",
     "USHA": "Usha", "FABER": "Faber", "MORPHY": "Morphy Richards", "SUNFLAME": "Sunflame",
     "SYMPHONY": "Symphony", "ORIENT": "Orient", "SINGER": "Singer", "VENUS": "Venus",
     "OSCAR": "Oscar", "EXIDE": "Exide", "ZEBRONICS": "Zebronics", "LEXTEL": "Lextel",
