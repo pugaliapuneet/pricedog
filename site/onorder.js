@@ -695,7 +695,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "1.5 TR",
+      "Capacity": "1.5 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Cooling Only"
     },
@@ -714,7 +714,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "2 TR",
+      "Capacity": "2 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Cooling Only"
     },
@@ -733,7 +733,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "3 TR",
+      "Capacity": "3 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Cooling Only"
     },
@@ -752,7 +752,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "4 TR",
+      "Capacity": "4 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Cooling Only"
     },
@@ -771,7 +771,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "1.5 TR",
+      "Capacity": "1.5 Ton",
       "Compressor": "Inverter",
       "Mode": "Cooling Only"
     },
@@ -790,7 +790,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "2 TR",
+      "Capacity": "2 Ton",
       "Compressor": "Inverter",
       "Mode": "Cooling Only"
     },
@@ -809,7 +809,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "3 TR",
+      "Capacity": "3 Ton",
       "Compressor": "Inverter",
       "Mode": "Cooling Only"
     },
@@ -828,7 +828,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "4 TR",
+      "Capacity": "4 Ton",
       "Compressor": "Inverter",
       "Mode": "Cooling Only"
     },
@@ -847,7 +847,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "Tower AC",
-      "Capacity": "2 TR",
+      "Capacity": "2 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Cooling Only"
     },
@@ -866,7 +866,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "Tower AC",
-      "Capacity": "3 TR",
+      "Capacity": "3 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Cooling Only"
     },
@@ -885,7 +885,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "Tower AC",
-      "Capacity": "4 TR",
+      "Capacity": "4 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Cooling Only"
     },
@@ -904,7 +904,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "Mega Split",
-      "Capacity": "2.5 TR",
+      "Capacity": "2.5 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -923,7 +923,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "Mega Split",
-      "Capacity": "3 TR",
+      "Capacity": "3 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -942,7 +942,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "2 TR",
+      "Capacity": "2 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -961,7 +961,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "2.5 TR",
+      "Capacity": "2.5 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -980,7 +980,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "3 TR",
+      "Capacity": "3 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -999,7 +999,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "3.5 TR",
+      "Capacity": "3.5 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -1018,7 +1018,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "4 Way Cassette",
-      "Capacity": "4 TR",
+      "Capacity": "4 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -1037,7 +1037,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "1 Way Cassette",
-      "Capacity": "1 TR",
+      "Capacity": "1 Ton",
       "Compressor": "Inverter",
       "Mode": "Cooling Only"
     },
@@ -1056,7 +1056,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "1 Way Cassette",
-      "Capacity": "1.5 TR",
+      "Capacity": "1.5 Ton",
       "Compressor": "Inverter",
       "Mode": "Cooling Only"
     },
@@ -1075,7 +1075,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "1 Way Cassette",
-      "Capacity": "2 TR",
+      "Capacity": "2 Ton",
       "Compressor": "Inverter",
       "Mode": "Cooling Only"
     },
@@ -1094,7 +1094,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "1 Way Cassette",
-      "Capacity": "1 TR",
+      "Capacity": "1 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -1113,7 +1113,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "1 Way Cassette",
-      "Capacity": "1.5 TR",
+      "Capacity": "1.5 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -1132,7 +1132,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "1 Way Cassette",
-      "Capacity": "2 TR",
+      "Capacity": "2 Ton",
       "Compressor": "Inverter",
       "Mode": "Hot & Cold"
     },
@@ -1151,7 +1151,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "Ducted Split",
-      "Capacity": "1.5 TR",
+      "Capacity": "1.5 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Cooling Only"
     },
@@ -1170,7 +1170,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "Ducted Split",
-      "Capacity": "2 TR",
+      "Capacity": "2 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Cooling Only"
     },
@@ -1189,7 +1189,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "Ducted Split",
-      "Capacity": "1.5 TR",
+      "Capacity": "1.5 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Hot & Cold"
     },
@@ -1208,7 +1208,7 @@ const ONORDER = [
     "attributes": {
       "Brand": "Voltas",
       "Type": "Ducted Split",
-      "Capacity": "2 TR",
+      "Capacity": "2 Ton",
       "Compressor": "Fixed Speed",
       "Mode": "Hot & Cold"
     },

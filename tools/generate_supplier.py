@@ -66,6 +66,8 @@ def compressor_of(raw_series):
 
 
 def ton_label(v):
+    # Ton / TR / Tn all mean the same thing for ACs (tons of refrigeration).
+    # Emit a single canonical "Ton" label so capacity filters and tags don't fragment.
     return f"{float(v):g} Ton"
 
 
@@ -119,7 +121,7 @@ def parse_commercial(row, brand, supplier, valid, category, gst):
     attributes = {
         "Brand": brand,
         "Type": row["type"].strip(),
-        "Capacity": f"{float(tr):g} TR",
+        "Capacity": ton_label(tr),  # TR == Ton; unify the label with the rest of the catalogue
         "Compressor": row["compressor"].strip(),
         "Mode": row["mode"].strip(),
     }
