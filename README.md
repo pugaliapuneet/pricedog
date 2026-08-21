@@ -67,7 +67,10 @@ Each supplier list is a CSV in `tools/`, in one of three formats:
 
 - **residential** — a brand's home-split range (columns:
   `series,capacity_ton,star,model,mrp,nlc`). Example:
-  `tools/rohit_daikin_june2026.csv`.
+  `tools/rohit_daikin_june2026.csv`. Two optional columns, `type` and
+  `compressor`, override the per-row defaults (`Split` / inferred from the
+  series name) — used for window units and fixed-speed models. Example:
+  `tools/satisfaction_hitachi_april2026.csv`.
 - **commercial** — a brand's commercial range: cassettes, tower, ducted
   (columns: `type,capacity_tr,compressor,mode,model,cbu,mrp,nlc`). Capacity is
   in TR and each unit carries an orderable CBU code. Example:
@@ -79,13 +82,16 @@ Each supplier list is a CSV in `tools/`, in one of three formats:
   derived from the product segment. Example: `tools/voltas_direct_july2026.csv`
   (Voltas' "Direct" list, ordered straight from the company).
 
-Regenerate `onorder.js` from all lists in one run (they're combined in order):
+Regenerate `onorder.js` from all lists in one run (they're combined in order —
+list **every** source each time, or the omitted ones drop out of the file):
 
 ```bash
 python tools/generate_supplier.py \
   --source tools/rohit_daikin_june2026.csv Daikin Rohit "June 2026" residential \
   --source tools/rohit_voltas_july2026.csv Voltas Rohit "July 2026" commercial \
-  --source tools/voltas_direct_july2026.csv Voltas Direct "July 2026" threshold
+  --source tools/voltas_direct_july2026.csv Voltas Direct "July 2026" threshold \
+  --source tools/satisfaction_hitachi_april2026.csv Hitachi Satisfaction "April 2026" residential \
+  --source tools/satisfaction_mitsubishi_april2026.csv "Mitsubishi Electric" Satisfaction "April 2026" residential
 git add site/onorder.js && git commit -m "Update on-order lists" && git push
 ```
 

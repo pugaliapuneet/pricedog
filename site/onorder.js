@@ -3,6 +3,8 @@
 //    36 · supplier "Rohit" · Daikin · June 2026 · residential.
 //    28 · supplier "Rohit" · Voltas · July 2026 · commercial.
 //    35 · supplier "Direct" · Voltas · July 2026 · threshold.
+//    28 · supplier "Satisfaction" · Hitachi · April 2026 · residential.
+//    22 · supplier "Satisfaction" · Mitsubishi Electric · April 2026 · residential.
 // costIncl = dealer NLC (treated as GST-inclusive); selling price is computed in app.js.
 const ONORDER = [
   {
@@ -1920,5 +1922,955 @@ const ONORDER = [
     "gst": 18,
     "costIncl": 45500,
     "costLabel": "Min threshold price"
+  },
+  {
+    "name": "HITACHI SUMO 5700XXL 1.5TON 5* RAS.Y519PCDISL",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Series": "Sumo 5700XXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 48929,
+    "mrp": 84990
+  },
+  {
+    "name": "HITACHI SUMO 3700XXL 1.5TON 3* RAS.Y319PCDISL",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Series": "Sumo 3700XXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 39713,
+    "mrp": 73990
+  },
+  {
+    "name": "HITACHI SUMO 3700XXL 2TON 3* RAS.Y324PCDISL",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "2 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Series": "Sumo 3700XXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 51863,
+    "mrp": 83990
+  },
+  {
+    "name": "HITACHI SUMO 5600XXL 1.5TON 5* RAS.X519PCDIBT",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Series": "Sumo 5600XXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 47314,
+    "mrp": 81990
+  },
+  {
+    "name": "HITACHI SUMO 3600XXL 1.5TON 3* RAS.X319PCDIBT",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Series": "Sumo 3600XXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 37758,
+    "mrp": 70990
+  },
+  {
+    "name": "HITACHI YOSHI 5600WTXL 1.5TON 5* RAS.X518PCDISM1",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Series": "Yoshi 5600WTXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 45087,
+    "mrp": 81990
+  },
+  {
+    "name": "HITACHI YOSHI 5500STXL 1TON 5* RAS.V512PCDIST",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Series": "Yoshi 5500STXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 37315,
+    "mrp": 66990
+  },
+  {
+    "name": "HITACHI YOSHI 5500STXL 1.5TON 5* RAS.V518PCDIST",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Series": "Yoshi 5500STXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 43990,
+    "mrp": 78990
+  },
+  {
+    "name": "HITACHI YOSHI 5500STXL 2TON 4* RAS.V522PCBISH1",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "2 Ton",
+      "Star Rating": "4 Star",
+      "Compressor": "Inverter",
+      "Series": "Yoshi 5500STXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 54580,
+    "mrp": 91200
+  },
+  {
+    "name": "HITACHI IZEN 3500XLHP 1.5TON 3* RAS.G318PHDIST",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Series": "Izen 3500XLHP"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 40525,
+    "mrp": 71990
+  },
+  {
+    "name": "HITACHI IZEN 4400XLHP 1.5TON 4* RAS.G418PHDIST",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "4 Star",
+      "Compressor": "Inverter",
+      "Series": "Izen 4400XLHP"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 44367,
+    "mrp": 76990
+  },
+  {
+    "name": "HITACHI SHIZEN 4100XHP 2TON 3* RMRG422HFX0",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "2 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Series": "Shizen 4100XHP"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 56989,
+    "mrp": 87500
+  },
+  {
+    "name": "HITACHI IZEN 3600WTXL 1.5TON 3* RAS.V318PCDISM1",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Series": "Izen 3600WTXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 37232,
+    "mrp": 69990
+  },
+  {
+    "name": "HITACHI IZEN 3500STXL 1.5TON 3* RAS.D318PCD2ST",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Series": "Izen 3500STXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 35713,
+    "mrp": 65990
+  },
+  {
+    "name": "HITACHI IZEN 3500STXL 1.5TON 3* RAS.V318PCDIST",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Series": "Izen 3500STXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 36409,
+    "mrp": 66990
+  },
+  {
+    "name": "HITACHI IZEN 3500STXL 2TON 3* RAS.V322PCDIST",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "2 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Series": "Izen 3500STXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 48096,
+    "mrp": 76990
+  },
+  {
+    "name": "HITACHI IZEN 3400SXL 1TON 3* RAS.G312PCDISS",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Series": "Izen 3400SXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 31320,
+    "mrp": 56990
+  },
+  {
+    "name": "HITACHI TOUSHI PLUS 5400SXL 1TON 5* RAS.E512PCDIB",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Series": "Toushi Plus 5400SXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 35492,
+    "mrp": 63990
+  },
+  {
+    "name": "HITACHI TOUSHI PLUS 5500STXL 1.5TON 5* RAS.V518PCDIBT1",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Series": "Toushi Plus 5500STXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 42924,
+    "mrp": 77990
+  },
+  {
+    "name": "HITACHI TOUSHI PLUS 3500STXL 1.5TON 3* RAS.E318PCDIBT",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Series": "Toushi Plus 3500STXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 35002,
+    "mrp": 64990
+  },
+  {
+    "name": "HITACHI TOUSHI PLUS 3400SXL 1.5TON 3* RAS.D318PCD2BS2",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Series": "Toushi Plus 3400SXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 34355,
+    "mrp": 62990
+  },
+  {
+    "name": "HITACHI TOUSHI PLUS 3400SXL 1TON 3* RAS.E312PCDIB",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Series": "Toushi Plus 3400SXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 29791,
+    "mrp": 54990
+  },
+  {
+    "name": "HITACHI TOUSHI PLUS 3400SXL 2TON 3* RAS.E322PCDIB",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "2 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Series": "Toushi Plus 3400SXL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 46700,
+    "mrp": 73990
+  },
+  {
+    "name": "HITACHI SHIZUKA 1.5TON 3* RAW318HIEO",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Window",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "3 Star",
+      "Compressor": "Inverter",
+      "Series": "Shizuka"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 33752,
+    "mrp": 44990
+  },
+  {
+    "name": "HITACHI SHIZUKA 1.5TON 5* RAW518HIEO",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Window",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Series": "Shizuka"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 39240,
+    "mrp": 52990
+  },
+  {
+    "name": "HITACHI SENPAI 3200FL 1TON 2* RAS.B312PCAIBA1",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "2 Star",
+      "Compressor": "Fixed Speed",
+      "Series": "Senpai 3200FL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 31589,
+    "mrp": 50700
+  },
+  {
+    "name": "HITACHI SENPAI 3200FL 1.5TON 2* RAS.B318PCAIBA1",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "2 Star",
+      "Compressor": "Fixed Speed",
+      "Series": "Senpai 3200FL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 37403,
+    "mrp": 58800
+  },
+  {
+    "name": "HITACHI SENPAI 2200FL 2TON 1* RAS.B222PCAIBA1",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Hitachi",
+      "Type": "Split",
+      "Capacity": "2 Ton",
+      "Star Rating": "1 Star",
+      "Compressor": "Fixed Speed",
+      "Series": "Senpai 2200FL"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 45966,
+    "mrp": 67300
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC GR TROPICAL 1TON 4* MSY-GR13VFT",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "4 Star",
+      "Compressor": "Inverter",
+      "Series": "GR Tropical"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 47056,
+    "mrp": 60020
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC GR TROPICAL 1.5TON 4* MSY-GR18VFT",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "4 Star",
+      "Compressor": "Inverter",
+      "Series": "GR Tropical"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 58831,
+    "mrp": 75040
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC GR TROPICAL 1.9TON 4* MSY-GR22VFT",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1.9 Ton",
+      "Star Rating": "4 Star",
+      "Compressor": "Inverter",
+      "Series": "GR Tropical"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 66781,
+    "mrp": 85180
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC GR 1.5TON 4* MSY-GR18VF",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "4 Star",
+      "Compressor": "Inverter",
+      "Series": "GR"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 52034,
+    "mrp": 66370
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC GR 1.9TON 4* MSY-GR22VF",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1.9 Ton",
+      "Star Rating": "4 Star",
+      "Compressor": "Inverter",
+      "Series": "GR"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 59200,
+    "mrp": 75510
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC JS 1TON 2* MSY-JS13VF",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "2 Star",
+      "Compressor": "Inverter",
+      "Series": "JS"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 36864,
+    "mrp": 47020
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC JS 1.5TON 2* MSY-JS18VF",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "2 Star",
+      "Compressor": "Inverter",
+      "Series": "JS"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 46476,
+    "mrp": 59280
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC JS 1.9TON 2* MSY-JS22VF",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1.9 Ton",
+      "Star Rating": "2 Star",
+      "Compressor": "Inverter",
+      "Series": "JS"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 52763,
+    "mrp": 67300
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC JX 1TON 2* MSY-JX13VF",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "2 Star",
+      "Compressor": "Inverter",
+      "Series": "JX"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 35774,
+    "mrp": 45630
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC JX 1.5TON 2* MSY-JX18VF",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "2 Star",
+      "Compressor": "Inverter",
+      "Series": "JX"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 45166,
+    "mrp": 57610
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC JX 1.9TON 2* MSY-JX22VF",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1.9 Ton",
+      "Star Rating": "2 Star",
+      "Compressor": "Inverter",
+      "Series": "JX"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 51242,
+    "mrp": 65360
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC RJS 1TON 2* MSY-RJS13VF",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "2 Star",
+      "Compressor": "Inverter",
+      "Series": "RJS"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 38306,
+    "mrp": 48860
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC RJS 1.5TON 2* MSY-RJS18VF",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "2 Star",
+      "Compressor": "Inverter",
+      "Series": "RJS"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 48639,
+    "mrp": 62040
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC RJS 1.9TON 2* MSY-RJS22VF",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1.9 Ton",
+      "Star Rating": "2 Star",
+      "Compressor": "Inverter",
+      "Series": "RJS"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 55437,
+    "mrp": 70710
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC RJX 1TON 2* MSY-RJX13VF",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "2 Star",
+      "Compressor": "Inverter",
+      "Series": "RJX"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 37585,
+    "mrp": 47940
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC HP 1TON 1* MSZ-HP13VA",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "1 Star",
+      "Compressor": "Inverter",
+      "Series": "HP"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 42493,
+    "mrp": 54200
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC HP 2TON 2* MSZ-HP24VA",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "2 Ton",
+      "Star Rating": "2 Star",
+      "Compressor": "Inverter",
+      "Series": "HP"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 70184,
+    "mrp": 89520
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC GK 2TON 1* MS-GK24VA",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "2 Ton",
+      "Star Rating": "1 Star",
+      "Compressor": "Fixed Speed",
+      "Series": "GK"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 65429,
+    "mrp": 81420
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC GZ 1TON 5* MSY-GZ13VF-DA1",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Series": "GZ"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 45903,
+    "mrp": 58650
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC GZ 1.5TON 5* MSY-GZ18VF-DA1",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1.5 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Series": "GZ"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 57232,
+    "mrp": 73000
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC GZ 1.9TON 5* MSY-GZ22VF-DA1",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "1.9 Ton",
+      "Star Rating": "5 Star",
+      "Compressor": "Inverter",
+      "Series": "GZ"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 65150,
+    "mrp": 83100
+  },
+  {
+    "name": "MITSUBISHI ELECTRIC GZ 2.2TON 4* MSY-GZ26VF-DA1",
+    "category": "Air Conditioner",
+    "attributes": {
+      "Brand": "Mitsubishi Electric",
+      "Type": "Split",
+      "Capacity": "2.2 Ton",
+      "Star Rating": "4 Star",
+      "Compressor": "Inverter",
+      "Series": "GZ"
+    },
+    "stock": 0,
+    "onOrder": true,
+    "supplier": "Satisfaction",
+    "priceList": "April 2026",
+    "gst": 18,
+    "costIncl": 83496,
+    "mrp": 106500
   }
 ];
