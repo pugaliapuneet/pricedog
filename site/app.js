@@ -51,6 +51,17 @@ function haystack(p) {
   return s;
 }
 
+/* How an attribute value is shown in the UI (tags + filter chips).
+   Star ratings render with a real star: "5 Star" -> "5★". The underlying data
+   value is unchanged, so search and faceting still work on "5 Star". */
+function displayValue(key, value) {
+  if (key === "Star Rating") {
+    const m = /^(\d+(?:\.\d+)?)\s*Star$/i.exec(value);
+    if (m) return `${m[1]}★`;
+  }
+  return value;
+}
+
 /* Numeric-aware sort so "1.5 Ton" < "2 Ton", "32 inch" < "43 inch", "—" last. */
 function valueSort(a, b) {
   if (a === "—") return 1;
@@ -135,7 +146,7 @@ function makeChip(key, value) {
   chip.type = "button";
   chip.className = "chip";
   chip.innerHTML = `<span class="chip-val"></span><span class="chip-count"></span>`;
-  chip.querySelector(".chip-val").textContent = value;
+  chip.querySelector(".chip-val").textContent = displayValue(key, value);
   const countEl = chip.querySelector(".chip-count");
   chip.addEventListener("click", () => {
     const set = (activeFilters[key] ||= new Set());
@@ -224,7 +235,7 @@ function card(p) {
   el.setAttribute("aria-expanded", "false");
   const tags = Object.entries(p.attributes)
     .filter(([, v]) => v && v !== "—")
-    .map(([, v]) => `<span class="tag">${v}</span>`)
+    .map(([k, v]) => `<span class="tag">${displayValue(k, v)}</span>`)
     .join("");
 
   let avail, detail;
