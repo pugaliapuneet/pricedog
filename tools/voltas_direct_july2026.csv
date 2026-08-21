@@ -1,0 +1,36 @@
+segment,capacity_tr,star,series,threshold
+Fixed Speed Window AC,1.0,2,Vectra,28000
+Fixed Speed Window AC,1.5,2,Vectra,31000
+Fixed Speed Window AC,1.5,3,Vectra,33500
+Fixed Speed Window AC,2.0,1,Vectra,35500
+Inverter Window AC,1.5,3,Vertis,32500
+Inverter Window AC,1.5,5,Vertis,37500
+Inverter Window AC,1.5,5,Vertis Topaz,39500
+Inverter Window AC,2.0,3,Vertis,37500
+Fixed Speed Split AC,1.0,2,Vectra,33500
+Fixed Speed Split AC,1.5,2,Vectra,37000
+Fixed Speed Split AC,1.5,3,Vectra,42500
+Fixed Speed Split AC,1.5,3,Venus,44500
+Fixed Speed Split AC,2.0,2,Vectra,47500
+Inverter Split AC,1.0,3,Vectra,31000
+Inverter Split AC,1.0,3,Vertis,32000
+Inverter Split AC,1.0,3,Vertis AI,33500
+Inverter Split AC,1.0,5,Vectra,38500
+Inverter Split AC,1.0,5,Vertis AI,40000
+Inverter Split AC,1.5,3,Vectra,34500
+Inverter Split AC,1.5,3,Vertis,35500
+Inverter Split AC,1.5,3,Vertis AI,37000
+Inverter Split AC,1.5,3,Vertis Leatherette AI,38000
+Inverter Split AC,1.5,3,Venus Luxe,39000
+Inverter Split AC,1.5,5,Vectra,44500
+Inverter Split AC,1.5,5,Vertis,45500
+Inverter Split AC,1.5,5,Vertis AI,47000
+Inverter Split AC,1.5,5,Venus Luxe,49500
+Inverter Split AC,2.0,3,Vectra,46500
+Inverter Split AC,2.0,3,Venus Luxe,49500
+Inverter Split AC,2.0,5,Vectra,59500
+Hot & Cold Inverter Split AC,1.5,3,Vectra,39000
+Hot & Cold Inverter Split AC,2.0,3,Vectra,49500
+Without Kit Inverter Split AC,1.0,3,Vectra (Without Kit),30000
+Without Kit Inverter Split AC,1.5,3,Vectra (Without Kit),33500
+Without Kit Inverter Split AC,2.0,3,Vectra (Without Kit),45500

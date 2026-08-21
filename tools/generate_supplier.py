@@ -11,7 +11,7 @@ GST-inclusive cost, written as `costIncl`, and the web app (site/app.js) applies
 same margin + rounding to produce the selling price. The list price (MRP) is carried
 alongside for the staff-only tap-to-reveal detail.
 
-Two CSV formats are supported, one per source, chosen by the source's FORMAT field:
+Three CSV formats are supported, one per source, chosen by the source's FORMAT field:
 
   residential — brand's home-split range (e.g. Daikin). Columns:
       series,capacity_ton,star,model,mrp,nlc
@@ -20,6 +20,12 @@ Two CSV formats are supported, one per source, chosen by the source's FORMAT fie
       Capacity is in TR, there is no star rating, and each unit carries an orderable
       CBU code. Columns:
       type,capacity_tr,compressor,mode,model,cbu,mrp,nlc
+
+  threshold   — a room-AC list quoting only a Min Threshold Price (e.g. Voltas "Direct").
+      No model code and no MRP/NLC: the threshold is the company's floor price and stands
+      in for the cost basis, so the margin rule prices it like any other item. Type /
+      Compressor / Mode are derived from the product segment. Columns:
+      segment,capacity_tr,star,series,threshold
 
 Every source is emitted into the SAME site/onorder.js, in the order given, so listing
 several suppliers/brands in one run keeps them all. Do not hand-edit onorder.js —
@@ -63,7 +69,8 @@ def ton_label(v):
     return f"{float(v):g} Ton"
 
 
-def base_item(brand, supplier, valid, category, gst, name, attributes, nlc, mrp, code=None):
+def base_item(brand, supplier, valid, category, gst, name, attributes, nlc, mrp,
+              code=None, cost_label=None):
     """Shared on-order item shape (see site/app.js for how it's rendered)."""
     item = {
         "name": name,
@@ -74,11 +81,14 @@ def base_item(brand, supplier, valid, category, gst, name, attributes, nlc, mrp,
         "supplier": supplier,
         "priceList": valid,
         "gst": gst,
-        "costIncl": nlc,   # dealer cost drives the selling price (see app.js)
-        "mrp": mrp,        # list price, shown in staff-only detail
+        "costIncl": nlc,   # cost basis drives the selling price (see app.js)
     }
+    if mrp is not None:
+        item["mrp"] = mrp  # list price, shown in staff-only detail (omitted when unknown)
     if code:
         item["code"] = code  # orderable code, shown in staff-only detail + searchable
+    if cost_label:
+        item["costLabel"] = cost_label  # overrides the "Your cost (NLC)" detail-row label
     return item
 
 
@@ -117,7 +127,45 @@ def parse_commercial(row, brand, supplier, valid, category, gst):
                      int(round(float(row["nlc"]))), int(round(float(row["mrp"]))), code=cbu)
 
 
-PARSERS = {"residential": parse_residential, "commercial": parse_commercial}
+def parse_threshold(row, brand, supplier, valid, category, gst):
+    """A room-AC list quoting only a Min Threshold Price (no model code, no MRP/NLC).
+
+    The threshold is the company's floor price for the counter; it stands in for the
+    cost basis, so the usual margin rule in app.js prices it exactly like every other
+    on-order item. Type / Compressor / Mode are derived from the product segment.
+    """
+    segment = row["segment"].strip()
+    seg = segment.lower()
+    cap = float(row["capacity_tr"].strip())
+    star = row["star"].strip()
+    series = row["series"].strip()
+
+    ac_type = "Window" if "window" in seg else "Split"
+    compressor = "Fixed Speed" if "fixed speed" in seg else "Inverter"
+    mode = "Hot & Cold" if ("hot & cold" in seg or "hot and cold" in seg) else "Cooling Only"
+
+    hc = " HOT & COLD" if mode == "Hot & Cold" else ""
+    name = (f"{brand.upper()} {series.upper()} {cap:g} TON {star} STAR "
+            f"{ac_type.upper()} {compressor.upper()}{hc}")
+    attributes = {
+        "Brand": brand,
+        "Type": ac_type,
+        "Capacity": ton_label(cap),
+        "Star Rating": f"{star} Star",
+        "Compressor": compressor,
+        "Mode": mode,
+        "Series": series,
+    }
+    return base_item(brand, supplier, valid, category, gst, name, attributes,
+                     int(round(float(row["threshold"]))), None,
+                     cost_label="Min threshold price")
+
+
+PARSERS = {
+    "residential": parse_residential,
+    "commercial": parse_commercial,
+    "threshold": parse_threshold,
+}
 
 
 def read_source(path, brand, supplier, valid, fmt, category, gst):
@@ -125,8 +173,8 @@ def read_source(path, brand, supplier, valid, fmt, category, gst):
     items = []
     with open(path, newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
-            if not (row.get("model") or "").strip():
-                continue
+            if not any((v or "").strip() for v in row.values()):
+                continue  # skip fully-blank rows
             items.append(parse(row, brand, supplier, valid, category, gst))
     if not items:
         sys.exit(f"No rows read from {path}")
